@@ -4,13 +4,13 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-linkchecker
-Version  : 10.2.1
-Release  : 1
-URL      : https://files.pythonhosted.org/packages/7d/82/aa846862d1b7c60654468cf16e7bdeca256b6a179d1d6f3b5ed3f74487ec/LinkChecker-10.2.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/7d/82/aa846862d1b7c60654468cf16e7bdeca256b6a179d1d6f3b5ed3f74487ec/LinkChecker-10.2.1.tar.gz
+Version  : 10.3.0
+Release  : 2
+URL      : https://files.pythonhosted.org/packages/50/20/87e21e7ab09e699e19fe1ad81033a55bdb0f719b7ce2fe43b43a3a229b36/LinkChecker-10.3.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/50/20/87e21e7ab09e699e19fe1ad81033a55bdb0f719b7ce2fe43b43a3a229b36/LinkChecker-10.3.0.tar.gz
 Summary  : check links in web documents or full websites
 Group    : Development/Tools
-License  : GPL-2.0
+License  : GPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: pypi-linkchecker-bin = %{version}-%{release}
 Requires: pypi-linkchecker-data = %{version}-%{release}
 Requires: pypi-linkchecker-license = %{version}-%{release}
@@ -26,6 +26,7 @@ BuildRequires : pypi(hatchling)
 BuildRequires : pypi(pdfminer.six)
 BuildRequires : pypi(py)
 BuildRequires : pypi(requests)
+BuildRequires : pypi(setuptools_scm)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
@@ -98,10 +99,10 @@ python3 components for the pypi-linkchecker package.
 
 
 %prep
-%setup -q -n linkchecker-10.2.1
-cd %{_builddir}/linkchecker-10.2.1
+%setup -q -n LinkChecker-10.3.0
+cd %{_builddir}/LinkChecker-10.3.0
 pushd ..
-cp -a linkchecker-10.2.1 buildavx2
+cp -a LinkChecker-10.3.0 buildavx2
 popd
 
 %build
@@ -109,7 +110,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688015032
+export SOURCE_DATE_EPOCH=1695141025
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -134,7 +135,8 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-linkchecker
-cp %{_builddir}/linkchecker-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-linkchecker/06877624ea5c77efe3b7e39b0f909eda6e25a4ec || :
+cp %{_builddir}/LinkChecker-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-linkchecker/06877624ea5c77efe3b7e39b0f909eda6e25a4ec || :
+cp %{_builddir}/LinkChecker-%{version}/doc/src/images/COPYING.images %{buildroot}/usr/share/package-licenses/pypi-linkchecker/d4ca5d36d06f97622e54feed256d8bff1c07db4d || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -175,6 +177,7 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-linkchecker/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+/usr/share/package-licenses/pypi-linkchecker/d4ca5d36d06f97622e54feed256d8bff1c07db4d
 
 %files man
 %defattr(0644,root,root,0755)
