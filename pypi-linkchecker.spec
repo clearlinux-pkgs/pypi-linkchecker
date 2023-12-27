@@ -7,7 +7,7 @@
 #
 Name     : pypi-linkchecker
 Version  : 10.4.0
-Release  : 4
+Release  : 5
 URL      : https://files.pythonhosted.org/packages/d2/ff/f2a00bf17165fc470d6d02eb191002902a40483a29b474672421f3bd637e/LinkChecker-10.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d2/ff/f2a00bf17165fc470d6d02eb191002902a40483a29b474672421f3bd637e/LinkChecker-10.4.0.tar.gz
 Summary  : check links in web documents or full websites
