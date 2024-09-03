@@ -1,5 +1,5 @@
 PKG_NAME := pypi-linkchecker
-URL = https://files.pythonhosted.org/packages/d2/ff/f2a00bf17165fc470d6d02eb191002902a40483a29b474672421f3bd637e/LinkChecker-10.4.0.tar.gz
+URL = https://files.pythonhosted.org/packages/db/8a/20cfbda1a4f5e9fd307cbb68dd15c2f14428deaf1eab89a79b9b7d03bf6e/LinkChecker-10.5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
